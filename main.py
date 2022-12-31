@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     """Return a friendly HTTP greeting."""
-    return 'welcome to alibaba cloud 2023'
+    return 'alibaba cloud '
 
 @app.errorhandler(500)
 def server_error(e):
