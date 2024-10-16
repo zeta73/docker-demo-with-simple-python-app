@@ -1,4 +1,4 @@
-FROM  alpine:3.8
+FROM  alibaba-cloud-linux-3-registry.cn-hangzhou.cr.aliyuncs.com/alinux3/python:3.11.1
     
 RUN   mkdir  /var/flasksite
 
