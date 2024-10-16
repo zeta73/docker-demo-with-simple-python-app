@@ -1,27 +1,17 @@
-FROM python:2.7
+FROM  alpine:3.8
+    
+RUN   mkdir  /var/flasksite
 
-# Creating Application Source Code Directory
-RUN mkdir -p /usr/src/app
+COPY  .  /var/flasksite/
 
-# Setting Home Directory for containers
-WORKDIR /usr/src/app
+WORKDIR  /var/flasksite/
 
-# Installing python dependencies
-COPY requirements.txt /usr/src/app/
-RUN pip install --no-cache-dir -r requirements.txt
+RUN apk add python3 
 
-# Copying src code to Container
-COPY . /usr/src/app
+RUN  pip3 install  -r requirements.txt 
 
-# Application Environment variables
-#ENV APP_ENV development
-ENV PORT 8080
+EXPOSE 5000
 
-# Exposing Ports
-EXPOSE $PORT
+ENTRYPOINT [ "python3" ]
 
-# Setting Persistent data
-VOLUME ["/app-data"]
-
-# Running Python Application
-CMD gunicorn -b :$PORT -c gunicorn.conf.py main:app
+CMD [ "app.py" ]
