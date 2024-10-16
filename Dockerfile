@@ -1,17 +1,12 @@
 FROM  alibaba-cloud-linux-3-registry.cn-hangzhou.cr.aliyuncs.com/alinux3/python:3.11.1
     
-RUN   mkdir  /var/flasksite
+WORKDIR /usr/src/app
 
-COPY  .  /var/flasksite/
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 
-WORKDIR  /var/flasksite/
-
-RUN apk add python3 
-
-RUN  pip3 install  -r requirements.txt 
+COPY . .
 
 EXPOSE 5000
 
-ENTRYPOINT [ "python3" ]
-
-CMD [ "app.py" ]
+CMD ["python", "app.py"]
