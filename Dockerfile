@@ -1,4 +1,4 @@
-FROM alibaba-cloud-linux-3-registry.cn-hangzhou.cr.aliyuncs.com/alinux3/python:3.11.1
+FROM python:2.7
 
 # Creating Application Source Code Directory
 RUN mkdir -p /usr/src/app
