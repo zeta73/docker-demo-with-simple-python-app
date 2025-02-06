@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/zeta73/docker-demo-with-simple-python-appgit'
+                git 'https://github.com/zeta73/docker-demo-with-simple-python-app.git'
             }
         }
 
