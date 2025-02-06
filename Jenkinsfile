@@ -5,7 +5,7 @@ pipeline {
         DOCKER_REGISTRY = 'registry-intl.ap-southeast-5.aliyuncs.com'
         DOCKER_NAMESPACE = 'gandes-test'
         IMAGE_NAME = 'build-from-jenkins'
-        IMAGE_TAG = '1.0'
+        IMAGE_TAG = '2.0'
     }
 
     stages {
