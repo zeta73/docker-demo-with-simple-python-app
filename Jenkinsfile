@@ -18,7 +18,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh "sudo docker build -t ${DOCKER_REGISTRY}/${DOCKER_NAMESPACE}/${IMAGE_NAME}:${IMAGE_TAG} ."
+                    sh "docker build -t ${DOCKER_REGISTRY}/${DOCKER_NAMESPACE}/${IMAGE_NAME}:${IMAGE_TAG} ."
                 }
             }
         }
@@ -27,8 +27,8 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: '63762d50-93fa-44ea-a5e3-68908510b08e', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                        sh "sudo docker login --username=${USERNAME} --password=${PASSWORD} ${DOCKER_REGISTRY}"
-                        sh "sudo docker push ${DOCKER_REGISTRY}/${DOCKER_NAMESPACE}/${IMAGE_NAME}:${IMAGE_TAG}"
+                        sh "docker login --username=${USERNAME} --password=${PASSWORD} ${DOCKER_REGISTRY}"
+                        sh "docker push ${DOCKER_REGISTRY}/${DOCKER_NAMESPACE}/${IMAGE_NAME}:${IMAGE_TAG}"
                     }
                 }
             }
